@@ -18,7 +18,8 @@ const ButtonAppBar = () => {
                     <Typography variant="title" color="inherit">
                         Smart Health
                     </Typography>
-                    <Button className="menu-button" color="inherit">Register / Sign-in</Button>
+                    <Button className="menu-button" color="inherit">Register</Button>
+                    <Button className="menu-button" color="inherit">Sign-in</Button>
                 </Toolbar>
             </AppBar>
         </div>
