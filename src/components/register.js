@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Register extends Component {
     render () {
         return (
-            LOGIN
+            <h2>Register</h2>
         )
     }
 }
