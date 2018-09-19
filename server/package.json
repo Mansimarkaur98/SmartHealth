@@ -4,7 +4,9 @@
   "description": "this is a backend server for our application using react and redux",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules",
+    "start": "npm run build && node dist/index.js"
   },
   "author": "",
   "license": "ISC",
