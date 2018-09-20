@@ -1,16 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _express = require('express');
-
-var _express2 = _interopRequireDefault(_express);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var app = (0, _express2.default)();
+var express = require('express');
+var app = express();
 
 app.get('/express-backend', function (req, res) {
     res.json({
@@ -18,5 +9,5 @@ app.get('/express-backend', function (req, res) {
     });
 });
 
-exports.default = app;
+module.export = app;
 // testing the backend with node js

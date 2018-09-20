@@ -1,3 +1,16 @@
-import app from './server';
+// const app = require ('./server');
+var express = require ('express');
 
-app.listen(5000, () => {console.log('you port is working')});
+var app = express();
+
+app.get('/', (req,res) => {
+    console.log('testing');
+});
+
+app.get('/express-backend', (req, res)=> {
+    res.json({
+        ok: true
+    });
+});
+
+app.listen(3000, function () {console.log('tesssting')});

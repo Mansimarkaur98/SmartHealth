@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require ('express');
 const app = express();
 
 app.get('/express-backend', (req, res)=> {
@@ -7,5 +7,5 @@ app.get('/express-backend', (req, res)=> {
     });
 });
 
-export default app;
+module.export = app;
 // testing the backend with node js

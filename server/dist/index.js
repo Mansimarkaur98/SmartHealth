@@ -1,11 +1,20 @@
 'use strict';
 
-var _server = require('./server');
+// const app = require ('./server');
+var express = require('express');
 
-var _server2 = _interopRequireDefault(_server);
+var app = express();
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+app.get('/', function (req, res) {
+    console.log('testing');
+});
 
-_server2.default.listen(5000, function () {
-  console.log('you port is working');
+app.get('/express-backend', function (req, res) {
+    res.json({
+        ok: true
+    });
+});
+
+app.listen(3000, function () {
+    console.log('tesssting');
 });
