@@ -2,14 +2,13 @@ const firebase = require('firebase');
 // require("firebase/auth");
 // require('firebase/database');
 
-
 const config = {
-    apiKey: "AIzaSyAJmGhYsogteAvEfor_lYYWV5GcgRbkF5o",
-    authDomain: "smartpark008.firebaseapp.com",
-    databaseURL: "https://smartpark008.firebaseio.com",
-    projectId: "smartpark008",
-    storageBucket: "smartpark008.appspot.com",
-    messagingSenderId: "355092244805"
+    apiKey: "AIzaSyBi1v3lS1hFMdAVTgOCYyLV3_XCSgDIuTo",
+    authDomain: "smarthealth-5fc73.firebaseapp.com",
+    databaseURL: "https://smarthealth-5fc73.firebaseio.com",
+    projectId: "smarthealth-5fc73",
+    storageBucket: "smarthealth-5fc73.appspot.com",
+    messagingSenderId: "544139409633"
 };
 
 firebase.initializeApp(config);
