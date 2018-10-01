@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+import 'firebase/auth';
 // require("firebase/auth");
 // require('firebase/database');
 
