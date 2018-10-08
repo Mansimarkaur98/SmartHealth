@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
-const ButtonAppBar = () => {
+const ButtonAppBar = ({history}) => {
     return (
         <div>
             <AppBar position="static">
@@ -15,7 +15,7 @@ const ButtonAppBar = () => {
                     <Typography variant="title" color="inherit">
                     <Link to="/">Smart Health</Link>
                     </Typography>
-                    <Link to="/register"><Button className="menu-button" color="inherit">Register</Button></Link>
+                    <Link to="/register"><Button className="menu-button" color="inherit" history = {history} >Register</Button></Link>
                     <Link to="/login" ><Button className="menu-button" color="inherit">Sign-in</Button></Link>
                 </Toolbar>
             </AppBar>
