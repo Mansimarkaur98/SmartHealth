@@ -93,6 +93,7 @@ class Register extends Component {
                     <div>
                     <TextField
                         label="password"
+                        type="password"
                         value={password1}
                         onChange={e => {this.setState({'password1' : e.target.value})}}
                         placeholder = "password here"

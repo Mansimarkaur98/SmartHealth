@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
-
+import firebase from 'firebase';
+import {Redirect} from 'react-router-dom';
 class Home extends Component {
-    render() {
+
+    render() {    
+        const user = firebase.auth().currentUser;
+        console.log(user);
+
+        const test = user ? <h2>{user.displayName}</h2> : <Redirect to= "/login"/>
         return (
-            <h2>HOME SWEET HOME</h2>
+            <div>
+                {test}
+            </div>
         )
     }
 }
