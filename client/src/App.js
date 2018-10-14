@@ -12,6 +12,7 @@ import {firebase} from './firebase'
 
 import './styles/styles.css';
 import ButtonAppBar from './components/appBar';
+import PasswordForget from './components/passwordForget';
 
 class App extends Component {
 
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/register" component= {Register}/>
             <Route exact path="/login" component= {Login}/>
             <Route exact path="/home" component= {Home}/>
+            <Route exact path="/password-reset" component= {PasswordForget}/>
           </div>
         </BrowserRouter>
       </div>

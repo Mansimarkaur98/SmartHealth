@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
-
 import {auth} from '../firebase';
 
 // import auth from '../../firebase/config';
@@ -79,10 +78,7 @@ class Login_Page extends Component {
                             Login
                         </Button>
 
-
-                        <Button variant="outlined" color="secondary">
-                            Forgot password ? 
-                        </Button>
+                        <Link to='/password-reset'><Button variant="outlined" color="secondary">Forgot Password</Button></Link>
 
                         {error && <p>{error.message}</p>}
                 </form>
