@@ -21,10 +21,15 @@ class Login_Page extends Component {
     }
     
     onSubmit = (event) => {
+        event.preventDefault();
+        
+        console.log('testtest');
         const {
           email,
           password,
         } = this.state;
+
+        console.log(email, password);
     
         const {
           history,
@@ -38,8 +43,6 @@ class Login_Page extends Component {
           .catch(error => {
             this.setState({error: error});
           });
-    
-        event.preventDefault();
     }
 
     render () {
@@ -52,7 +55,7 @@ class Login_Page extends Component {
 
         return (
             <div>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <div>
                         <TextField
                             label="email"
@@ -72,7 +75,7 @@ class Login_Page extends Component {
                             onChange = {event => this.setState({'password': event.target.value})}
                         />
                     </div>
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="primary" onClick={this.onSubmit.bind(this)}>
                             Login
                         </Button>
 

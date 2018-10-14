@@ -1,17 +1,17 @@
+import extend from 'extend';
 
 const initialState = {
-    user_data: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: ''
-    }
+    user_profile: null,
 }
 
 export default function (state = initialState, action){
     switch(action.type){
-        case 'REGISTER_ACTIONS':
-            return state
+
+        case 'USER_AUTH':
+        
+            return extend ({}, state, {
+                user_profile: action.payload
+            });
 
         default:
             return state;    

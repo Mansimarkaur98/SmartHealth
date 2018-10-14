@@ -2,10 +2,32 @@ import React, {Component} from 'react';
 import {AppBar, Toolbar, Typography, Button, IconButton} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
+import {auth} from '../firebase';
+
+const navigateNonAuth = () => {
+    return (
+        <div>
+            <Link to="/register"><Button className="menu-button" color="inherit">Register</Button></Link>
+            <Link to="/login" ><Button className="menu-button" color="inherit">Sign-in</Button></Link>
+        </div>
+    )
+}
+
+const navigateAuth = () => {
+    return (
+        <Link to="/"><Button className="menu-button" color="inherit" onClick={auth.doSignOut}>Sign out</Button></Link>
+    )
+}
 
 class ButtonAppBar extends Component {
 
-    render(history){
+    authentication() {
+        console.log('test');
+        const {authUser} = this.props;
+        return authUser ? navigateAuth() : navigateNonAuth();
+    }
+
+    render(){
     return (
         <div>
             <AppBar position="static">
@@ -16,9 +38,8 @@ class ButtonAppBar extends Component {
                     </IconButton>
                     <Typography variant="title" color="inherit">
                     <Link to="/">Smart Health</Link>
-                    <Link to="/register"><Button className="menu-button" color="inherit" history = {history} >Register</Button></Link>
-                    <Link to="/login" ><Button className="menu-button" color="inherit" history={history}>Sign-in</Button></Link>
                     </Typography>
+                    {this.authentication}
                 </Toolbar>
             </AppBar>
         </div>

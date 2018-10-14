@@ -5,10 +5,23 @@ import Login from './components/login';
 import Landing from './components/Landing';
 import Home from './components/home';
 
+import {connect} from 'react-redux';
+import {userAuth} from './actions/authActions';
+
+import {firebase} from './firebase'
+
 import './styles/styles.css';
 import ButtonAppBar from './components/appBar';
 
 class App extends Component {
+
+  componentDidMount(){
+    firebase.auth.onAuthStateChanged(user_data => {
+      this.props.userAuth(user_data);
+      console.log('SENT');
+    })
+  }
+
   render() {
     return (      
       <div>
@@ -26,7 +39,25 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  const {
+    user_profile
+  } = state.authReducer;
+
+  return {
+    user_profile,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      userAuth: (values) => {
+        dispatch(userAuth(values))
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 // this is the main page of our app...

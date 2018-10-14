@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import {Redirect} from 'react-router-dom';
+
 class Home extends Component {
 
     render() {    
@@ -8,9 +9,10 @@ class Home extends Component {
         console.log(user);
 
         const test = user ? <h2>{user.displayName}</h2> : <Redirect to= "/login"/>
+        console.log(test);
         return (
             <div>
-                {test}
+                <h4>Hi User</h4>
             </div>
         )
     }

@@ -1,7 +1,8 @@
 
-export function registerAction(values){
+export function userAuth(values){
+
     return {
-        type: 'REGISTER_ACTIONS',
+        type: 'USER_AUTH',
         payload: values
     }
 }
