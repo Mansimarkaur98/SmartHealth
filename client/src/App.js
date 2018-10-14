@@ -18,7 +18,6 @@ class App extends Component {
   componentDidMount(){
     firebase.auth.onAuthStateChanged(user_data => {
       this.props.userAuth(user_data);
-      console.log('SENT');
     })
   }
 
@@ -27,7 +26,7 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div>
-          <ButtonAppBar/>
+          <ButtonAppBar authUser = {this.props.user_profile}/>
             <Route exact path="/" component= {Landing}/>
             <Route exact path="/register" component= {Register}/>
             <Route exact path="/login" component= {Login}/>

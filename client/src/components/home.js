@@ -6,10 +6,10 @@ class Home extends Component {
 
     render() {    
         const user = firebase.auth().currentUser;
-        console.log(user);
 
         const test = user ? <h2>{user.displayName}</h2> : <Redirect to= "/login"/>
         console.log(test);
+        
         return (
             <div>
                 <h4>Hi User</h4>

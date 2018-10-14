@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import {auth} from '../firebase';
 
-const navigateNonAuth = () => {
+const NavigateNonAuth = () => {
     return (
         <div>
             <Link to="/register"><Button className="menu-button" color="inherit">Register</Button></Link>
@@ -13,7 +13,7 @@ const navigateNonAuth = () => {
     )
 }
 
-const navigateAuth = () => {
+const NavigateAuth = () => {
     return (
         <Link to="/"><Button className="menu-button" color="inherit" onClick={auth.doSignOut}>Sign out</Button></Link>
     )
@@ -22,9 +22,8 @@ const navigateAuth = () => {
 class ButtonAppBar extends Component {
 
     authentication() {
-        console.log('test');
-        const {authUser} = this.props;
-        return authUser ? navigateAuth() : navigateNonAuth();
+        const authUser = this.props.authUser;
+        return authUser ? <NavigateAuth/> : <NavigateNonAuth/>;
     }
 
     render(){
@@ -39,7 +38,7 @@ class ButtonAppBar extends Component {
                     <Typography variant="title" color="inherit">
                     <Link to="/">Smart Health</Link>
                     </Typography>
-                    {this.authentication}
+                    {this.authentication()}
                 </Toolbar>
             </AppBar>
         </div>
