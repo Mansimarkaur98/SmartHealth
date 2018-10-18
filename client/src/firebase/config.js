@@ -1,4 +1,4 @@
-const firebase = require('firebase');
+import firebase from 'firebase/app';
 import 'firebase/auth';
 // require("firebase/auth");
 // require('firebase/database');
@@ -12,10 +12,15 @@ const config = {
     messagingSenderId: "544139409633"
 };
 
-firebase.initializeApp(config);
-
+if(!firebase.apps.length){
+    firebase.initializeApp(config);
+}
 export default firebase;
 
-export const database = firebase.database();
-export const auth = firebase.auth();
-export const googleAuthProvider = new firebase.auth.googleAuthProvider
+// export const database = firebase.database();
+const auth = firebase.auth();
+// export const googleAuthProvider = new firebase.auth.googleAuthProvider();
+
+export {
+    auth,
+}
