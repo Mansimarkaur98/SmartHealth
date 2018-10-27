@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {AppBar, Toolbar, Typography, Button, IconButton} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
-import {auth} from '../firebase';
+import {auth} from '../firebase/config';
 
 const NavigateNonAuth = () => {
     return (
@@ -15,7 +15,7 @@ const NavigateNonAuth = () => {
 
 const NavigateAuth = () => {
     return (
-        <Link to="/"><Button className="menu-button" color="inherit" onClick={auth.doSignOut}>Sign out</Button></Link>
+        <Link to="/"><Button className="menu-button" color="inherit" onClick={() => auth.signOut()}>Sign out</Button></Link>
     )
 }
 

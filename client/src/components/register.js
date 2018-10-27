@@ -28,6 +28,8 @@ class Register extends Component {
     handleSubmit(e){
         const {history} = this.props;
 
+        console.log(history);
+
         e.preventDefault();
         const {
             email, password1
