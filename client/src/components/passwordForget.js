@@ -45,7 +45,7 @@ class PasswordForget extends Component {
                         label="email"
                         placeholder = "Enter the email to reset password"
                         multiline
-                        value={this.state.email}
+                        value={email}
                         onChange = {event => this.setState({'email': event.target.value})}
                     />
 

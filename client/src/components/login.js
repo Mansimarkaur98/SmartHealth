@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import {auth} from '../firebase';
 
+import GoogleAuthSignIn from './googleAuthSignIn';
 // import auth from '../../firebase/config';
 
 const INITIAL_STATE = {
@@ -86,6 +87,10 @@ class Login_Page extends Component {
                 <div>
                     <h4>Don't have an account ?</h4>
                     <Link to='/register'>Sign up</Link>
+                </div>
+
+                <div>
+                    <GoogleAuthSignIn/>
                 </div>
             </div>
         )
