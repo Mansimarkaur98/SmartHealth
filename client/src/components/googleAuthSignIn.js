@@ -7,10 +7,7 @@ import {withRouter} from 'react-router';
 class GoogleAuthSignIn extends Component {
 
     render (){
-
         const {history} = this.props;
-
-        console.log('history', history);
 
         return (
             <div className="button">
