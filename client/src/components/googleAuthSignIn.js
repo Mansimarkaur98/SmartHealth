@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
+import Button from '@material-ui/core/Button';
 import {auth, googleAuthProvider} from '../firebase/config';
 
 class GoogleAuthSignIn extends Component {
     render (){
         return (
             <div className="button">
-                <button onClick={() => auth.signInWithPopup(googleAuthProvider)}>
+                <Button variant= "outlined" onClick={() => auth.signInWithPopup(googleAuthProvider)}>
                     Sign in with Google
-                </button>
+                </Button>
             </div>
         )
     }
