@@ -1,20 +1,36 @@
 import React, {Component} from 'react';
-import firebase from 'firebase';
+import {connect} from 'react-redux';
+// import firebase from 'firebase';
 import {Redirect} from 'react-router-dom';
 
 class Home extends Component {
 
     render() {    
-        const user = firebase.auth().currentUser;
-        const test = user ? <h2>{user.displayName}</h2> : <Redirect to= "/login"/>
+        const user_profile = this.props.user_profile;
+
+        const test = user_profile ? <h2>{user_profile.displayName}</h2> : <Redirect to= "/login"/>
         
         return (
             <div>
-                <h4>Hi User</h4>
-                {test}
+                {
+                    user_profile && 
+                    <div>
+                        {test}
+                    </div>
+                }
             </div>
         )
     }
 }
 
-export default Home;
+const mapStateToProps = state => {
+    const {
+        user_profile
+    } = state.authReducer;
+    
+    return {
+        user_profile
+    };
+}
+
+export default connect(mapStateToProps)(Home);

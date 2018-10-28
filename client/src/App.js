@@ -16,7 +16,7 @@ import PasswordForget from './components/passwordForget';
 
 class App extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     firebase.auth.onAuthStateChanged(user_data => {
       this.props.userAuth(user_data);
     })

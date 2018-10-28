@@ -8,7 +8,7 @@ export default function (state = initialState, action){
     switch(action.type){
 
         case 'USER_AUTH':
-        
+
             return extend ({}, state, {
                 user_profile: action.payload
             });
