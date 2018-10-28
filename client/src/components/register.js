@@ -4,6 +4,7 @@ import {auth} from '../firebase';
 import {withRouter} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import GoogleAuthSignIn from './googleAuthSignIn'
 // import {withStyles} from '@material-ui/core/styles';
 
 const INITIAL_STATE = {
@@ -112,11 +113,13 @@ class Register extends Component {
                         onChange={e => {this.setState({'password2' : e.target.value})}}
                     />
                     </div>
-                    {error & <p>{error}</p>}
+                    {error && <p>{error}</p>}
                     <Button variant="contained" color="primary" disabled={isInvalid} type="submit">
                         Register
                     </Button>
                 </form> 
+
+                <GoogleAuthSignIn/>
             </div>
         )
     }
