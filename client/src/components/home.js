@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 // import firebase from 'firebase';
 import {Redirect} from 'react-router-dom';
-import PatientRegister from './PatientRegister'
+import {Link} from 'react-router-dom';
+import {Button} from '@material-ui/core'
 
 class Home extends Component {
 
@@ -19,8 +20,14 @@ class Home extends Component {
                     user_profile && 
                     <div>
                         {test}
-
-                        <PatientRegister/>
+                        <Link to="/register-patient" >
+                            <Button 
+                            className="menu-button" 
+                            color="inherit"
+                            >
+                            Register a new Patient
+                            </Button>
+                            </Link>
                     </div>
                 }
             </div>
