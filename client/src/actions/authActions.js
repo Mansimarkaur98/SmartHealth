@@ -5,3 +5,13 @@ export function userAuth(values){
         payload: values
     }
 }
+
+export function userTypeAction(user_data, uid){
+
+    const user_type = user_data[uid].type;
+    
+    return {
+        type: "USER_TYPE",
+        payload: user_type
+    }
+}
