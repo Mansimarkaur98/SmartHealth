@@ -18,3 +18,7 @@ if you are located in the server directory, use the following command
 ### TODO
 - sendgrid for payments
 - library to handle booking appointments 
+
+## FIREBASE WEBSITE LINK
+
+https://smarthealth-5fc73.firebaseapp.com/
