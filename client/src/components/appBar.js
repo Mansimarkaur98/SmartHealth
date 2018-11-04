@@ -3,6 +3,7 @@ import {AppBar, Toolbar, Typography, Button, IconButton} from '@material-ui/core
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import {auth} from '../firebase/config';
+import {connect} from 'react-redux';
 
 const NavigateNonAuth = () => {
     return (
@@ -36,7 +37,11 @@ class ButtonAppBar extends Component {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="title" color="inherit">
-                    <Link to="/">Smart Health</Link>
+                    {
+                        this.props.user_profile ? 
+                        <Link to="/home">Smart Health</Link> : 
+                        <Link to="/">Smart Health</Link>
+                        }
                     </Typography>
                     {this.authentication()}
                 </Toolbar>
@@ -47,4 +52,11 @@ class ButtonAppBar extends Component {
 
 };
 
-export default ButtonAppBar;
+const mapStateToProps = state => {
+    const {user_profile} = state.authReducer;
+    return {
+        user_profile
+    }
+}
+
+export default connect(mapStateToProps)(ButtonAppBar);
