@@ -13,14 +13,16 @@ import {firebase} from './firebase'
 import './styles/styles.css';
 import ButtonAppBar from './components/appBar';
 import PasswordForget from './components/passwordForget';
+import PatientRegister from './components/PatientRegister';
 
 class App extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     firebase.auth.onAuthStateChanged(user_data => {
       this.props.userAuth(user_data);
     })
   }
+
 
   render() {
     return (      
@@ -33,6 +35,7 @@ class App extends Component {
             <Route exact path="/login" component= {Login}/>
             <Route exact path="/home" component= {Home}/>
             <Route exact path="/password-reset" component= {PasswordForget}/>
+            <Route exact path="/register-patient" component= {PatientRegister}/>
           </div>
         </BrowserRouter>
       </div>

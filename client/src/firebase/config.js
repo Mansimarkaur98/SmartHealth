@@ -1,7 +1,5 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import 'firebase/auth';
-// require("firebase/auth");
-// require('firebase/database');
 
 const config = {
     apiKey: "AIzaSyBi1v3lS1hFMdAVTgOCYyLV3_XCSgDIuTo",
@@ -17,10 +15,11 @@ if(!firebase.apps.length){
 }
 export default firebase;
 
-// export const database = firebase.database();
+const database = firebase.database();
 const auth = firebase.auth();
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export {
-    auth
+    auth,
+    database
 }
