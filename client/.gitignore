@@ -63,3 +63,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# removing build from github as theres no use to it
+build/
+.firebase
