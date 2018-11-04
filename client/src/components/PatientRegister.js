@@ -9,14 +9,21 @@ class PatientRegister extends Component {
                     <div>
                         <TextField
                             id="standard-bare"
-                            placeholder="FirstName"
+                            placeholder="First Name"
                             margin="normal"
                         />
                     </div>
                     <div>
                         <TextField
                             id="standard-bare"
-                            placeholder="Lastname"
+                            placeholder="Middle Name"
+                            margin="normal"
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="Last name"
                             margin="normal"
                         />
                     </div>
@@ -24,6 +31,28 @@ class PatientRegister extends Component {
                         <TextField
                             id="standard-bare"
                             placeholder="email"
+                            margin="normal"
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="Primary phone number"
+                            margin="normal"
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="Date of Birth"
+                            margin="normal"
+                            type="date"
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="address"
                             margin="normal"
                         />
                     </div>

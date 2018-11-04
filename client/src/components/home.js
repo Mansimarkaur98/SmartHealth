@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 // import firebase from 'firebase';
 import {Redirect} from 'react-router-dom';
 import DoctorPanel from './DoctorPanel';
+import PatientPanel from './PatientPanel';
 import {database} from '../firebase/config';
 // from material ui 
 import { userTypeAction } from '../actions/authActions';
@@ -15,6 +16,12 @@ class Home extends Component {
         
         if(user_type === 'DOCTOR'){
             return <DoctorPanel/>
+        }
+        // else if (user_type === 'PATIENT'){
+        //     return <PatientPanel/>
+        // }
+        else {
+            return <PatientPanel/>
         }
     }
 
@@ -43,7 +50,6 @@ class Home extends Component {
                         <AvatarHeader/>
                         {this.filterUserType()}
                         {this.renderingUserType()}
-                        
                     </div>
                 }
             </div>
