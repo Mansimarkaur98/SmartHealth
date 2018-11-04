@@ -8,7 +8,13 @@ export function userAuth(values){
 
 export function userTypeAction(user_data, uid){
 
-    const user_type = user_data[uid].type;
+    let user_type = null;
+    if(user_data[uid]){
+        user_type = user_data[uid].type;
+    }
+    else if(!user_data[uid]){
+        user_type = 'PATIENT';
+    }
     
     return {
         type: "USER_TYPE",

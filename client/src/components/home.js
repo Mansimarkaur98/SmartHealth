@@ -5,8 +5,8 @@ import {Redirect} from 'react-router-dom';
 import DoctorPanel from './DoctorPanel';
 import {database} from '../firebase/config';
 // from material ui 
-import Avatar from '@material-ui/core/Avatar';
 import { userTypeAction } from '../actions/authActions';
+import AvatarHeader from './AvatarHeader';
 
 class Home extends Component {
 
@@ -18,7 +18,7 @@ class Home extends Component {
         }
     }
 
-    componentDidMount(){
+    filterUserType(){
         const {user_profile} = this.props;
 
         if(user_profile){
@@ -33,24 +33,16 @@ class Home extends Component {
 
     render() {    
         const user_profile = this.props.user_profile;
-        
-
-        // const test = user_profile ? <h2>{user_profile.displayName}</h2> : <Redirect to= "/login"/>
+        const test = user_profile ? <h2>{user_profile.displayName}</h2> : <Redirect to= "/login"/>
         
         return (
             <div>
-                {!user_profile && <Redirect to="/login"/>}
-                
                 {
                     user_profile && 
                     <div>
-                        <div className="avatar-header">
-                            <Avatar
-                                alt={user_profile.displayName}
-                                src={user_profile.photoURL}
-                            />
-                            {this.renderingUserType()}
-                        </div>
+                        {this.filterUserType()}
+                        {this.renderingUserType()}
+                        <AvatarHeader/>
                     </div>
                 }
             </div>
