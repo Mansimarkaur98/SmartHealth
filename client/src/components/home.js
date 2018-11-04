@@ -40,9 +40,10 @@ class Home extends Component {
                 {
                     user_profile && 
                     <div>
+                        <AvatarHeader/>
                         {this.filterUserType()}
                         {this.renderingUserType()}
-                        <AvatarHeader/>
+                        
                     </div>
                 }
             </div>

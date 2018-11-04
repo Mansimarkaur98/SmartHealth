@@ -13,7 +13,10 @@ class AvatarHeader extends Component {
                 <Avatar
                     alt={user_profile.displayName}
                     src={user_profile.photoURL}
+                    className="profile-avatar"
                 />
+
+                <h5>Hello, {user_profile.displayName}</h5>
             </div>
         )
     }

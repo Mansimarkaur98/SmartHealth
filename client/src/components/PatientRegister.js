@@ -6,21 +6,27 @@ class PatientRegister extends Component {
         return (
             <div>
                 <form>
-                    <TextField
-                        id="standard-bare"
-                        placeholder="FirstName"
-                        margin="normal"
-                    />
-                    <TextField
-                        id="standard-bare"
-                        placeholder="Lastname"
-                        margin="normal"
-                    />
-                    <TextField
-                        id="standard-bare"
-                        placeholder="email"
-                        margin="normal"
-                    />
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="FirstName"
+                            margin="normal"
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="Lastname"
+                            margin="normal"
+                        />
+                    </div>
+                    <div>
+                        <TextField
+                            id="standard-bare"
+                            placeholder="email"
+                            margin="normal"
+                        />
+                    </div>
                 </form>
             </div>
         )

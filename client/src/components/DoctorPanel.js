@@ -6,16 +6,15 @@ class DoctorPanel extends Component {
     render (){
         return (
             <div>
-                Welcome back
                 <div>
-                <Link to="/register-patient" >
-                            <Button 
+                    <Link to="/register-patient" >
+                        <Button 
                             className="menu-button" 
                             color="inherit"
-                            >
+                        >
                             Register a new Patient
-                            </Button>
-                            </Link>
+                        </Button>
+                    </Link>
                 </div>
             </div>
         )
