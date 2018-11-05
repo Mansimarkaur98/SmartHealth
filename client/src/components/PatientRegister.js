@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class PatientRegister extends Component {
 
@@ -7,17 +8,22 @@ class PatientRegister extends Component {
         super(props);
 
         this.state = {
-            first_name: null,
-            middle_name: null,
-            last_name: null,
-            email: null,
-            phone: null,
-            dob: null,
-            address1: null,
-            address2: null,
-            city: null,
-            province: null,
+            first_name: "",
+            middle_name: "",
+            last_name: "",
+            email: "",
+            phone: "",
+            dob: "",
+            address1: "",
+            address2: "",
+            city: "",
+            province: "",
         };
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        console.log(this.state);
     }
 
     displayForm(){
@@ -36,7 +42,7 @@ class PatientRegister extends Component {
         } = this.state;
 
         return (
-            <form>
+            <form onSubmit={this.handleSubmit.bind(this)}>
                     <div>
                         <TextField
                             id="standard-bare"
@@ -88,7 +94,8 @@ class PatientRegister extends Component {
                             placeholder="Date of Birth"
                             margin="normal"
                             type="date"
-                            value={dob}
+                            // value={dob}
+                            selected={dob}
                             onChange={e => this.setState({date: e.target.value})}
                         />
                     </div>
@@ -113,7 +120,7 @@ class PatientRegister extends Component {
                     <div>
                         <TextField
                             id="standard-bare"
-                            placeholder="address"
+                            placeholder="city"
                             margin="normal"
                             value={city}
                             onChange={e => this.setState({city: e.target.value})}
@@ -122,17 +129,21 @@ class PatientRegister extends Component {
                     <div>
                         <TextField
                             id="standard-bare"
-                            placeholder="address"
+                            placeholder="province"
                             margin="normal"
                             value={province}
                             onChange={e => this.setState({province: e.target.value})}
                         />
                     </div>
+                    <Button variant="outlined" size="medium" color="primary" type="submit">
+                        Submit and Proceed
+                    </Button>
                 </form>
         )
     }
 
     render(){
+
         return (
             <div>
                 {this.displayForm()}
