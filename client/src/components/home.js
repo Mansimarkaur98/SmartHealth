@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import DoctorPanel from './DoctorPanel';
 import PatientPanel from './PatientPanel';
+import AdminPanel from './AdminPanel';
 import {database} from '../firebase/config';
 // from material ui 
 import { userTypeAction } from '../actions/authActions';
@@ -11,17 +12,31 @@ import AvatarHeader from './AvatarHeader';
 
 class Home extends Component {
 
-    renderingUserType() {
-        const {user_type} = this.props;
-        
+    componentDidUpdate() {
+        const {user_type, user_profile} = this.props;
+        // detecting what type of user is logged in
         if(user_type === 'DOCTOR'){
             return <DoctorPanel/>
         }
-        // else if (user_type === 'PATIENT'){
-        //     return <PatientPanel/>
-        // }
+        else if (user_type === 'ADMIN'){
+            return <AdminPanel/>
+        }
         else {
-            return <PatientPanel/>
+            return (
+                <PatientPanel/>
+            )
+        }
+        // checking if it is a new user or not. 
+        // if it is, update data inside database else just retrieve it
+
+        if(user_profile.uid){
+            const uid = user_profile.uid;
+            let user_uid_list = [];
+            database.ref('/USERS/users_type').on('value', (snapshot) => {
+                user_uid_list = Object.keys(snapshot.val());
+            })
+
+            // use some to check out if it is a new or old user
         }
     }
 
@@ -48,8 +63,7 @@ class Home extends Component {
                     user_profile && 
                     <div>
                         <AvatarHeader/>
-                        {this.filterUserType()}
-                        {this.renderingUserType()}
+                        {this.filterUserType()}                        
                     </div>
                 }
             </div>

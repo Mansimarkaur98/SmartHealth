@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import BookAppointment from './BookAppointment';
+// BookAppointment
 
 class PatientPanel extends Component {
     render () {
@@ -11,7 +11,6 @@ class PatientPanel extends Component {
                     // &&
                     <div>
                         Hope you doing well !
-                        <BookAppointment/>
                     </div>
                 }
             </div>
