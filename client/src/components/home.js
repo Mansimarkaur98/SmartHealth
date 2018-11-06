@@ -12,7 +12,7 @@ import AvatarHeader from './AvatarHeader';
 
 class Home extends Component {
 
-    componentDidUpdate() {
+    renderUserType() {
         const {user_type, user_profile} = this.props;
         // detecting what type of user is logged in
         if(user_type === 'DOCTOR'){
@@ -22,22 +22,30 @@ class Home extends Component {
             return <AdminPanel/>
         }
         else {
-            return (
-                <PatientPanel/>
-            )
+
+            if(user_profile.uid){
+                const uid = user_profile.uid;
+                let user_uid_list = [];
+                database.ref('/USERS/users_type').on('value', (snapshot) => {
+                    user_uid_list = Object.keys(snapshot.val());
+                })
+
+                if(user_uid_list.includes(uid)){
+                    return (
+                        <PatientPanel isRegistered={true}/>
+                    )
+                }
+                else {
+                    return <PatientPanel isRegistered={false}/>
+                }
+                // return user_uid_list.includes(uid) ? <PatientPanel isRegistered="yes"/> : <PatientPanel isRegistered="no"/>
+                // use some to check out if it is a new or old user
+            }
         }
         // checking if it is a new user or not. 
         // if it is, update data inside database else just retrieve it
 
-        if(user_profile.uid){
-            const uid = user_profile.uid;
-            let user_uid_list = [];
-            database.ref('/USERS/users_type').on('value', (snapshot) => {
-                user_uid_list = Object.keys(snapshot.val());
-            })
-
-            // use some to check out if it is a new or old user
-        }
+        
     }
 
     filterUserType(){
@@ -63,7 +71,8 @@ class Home extends Component {
                     user_profile && 
                     <div>
                         <AvatarHeader/>
-                        {this.filterUserType()}                        
+                        {this.filterUserType()}
+                        {this.renderUserType()}                        
                     </div>
                 }
             </div>

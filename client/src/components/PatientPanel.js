@@ -2,17 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 // BookAppointment
 
+import PatientRegister from './PatientRegister';
+
 class PatientPanel extends Component {
+    renderDashboard(){
+        const {isRegistered} = this.props;
+        
+        if(!isRegistered){
+            return <PatientRegister/>
+        }
+    }
+
     render () {
+
         return (
             <div>
-                {
-                    // this.propss.user_type === 'PATIENT'
-                    // &&
-                    <div>
-                        Hope you doing well !
-                    </div>
-                }
+                {this.renderDashboard()}
             </div>
         )
     }
