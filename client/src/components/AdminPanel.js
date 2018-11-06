@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
-import ManageDoctors from './AdminPanel/ManageDoctors';
-import ManageInventory from './AdminPanel/ManageInventory';
+import {Button} from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 class AdminPanel extends Component {
     render (){
         return (
             <div>
                 <h4>Return Admin Panel</h4>
-                <ManageDoctors/>
-                <ManageInventory/>
+                <Link to="/manage-doctors">
+                    <Button className="menu-button" color="inherit">
+                        Manage Doctors
+                    </Button>
+                </Link>
+                <Link to="/manage-inventory">
+                    <Button className="menu-button" color="inherit">
+                        Manage inventory
+                    </Button>
+                </Link>
             </div>
         )
     }

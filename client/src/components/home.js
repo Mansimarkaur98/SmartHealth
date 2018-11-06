@@ -31,6 +31,7 @@ class Home extends Component {
                 })
 
                 if(user_uid_list.includes(uid)){
+                    // checking if the user already exists inside the list of all the users or no...
                     return (
                         <PatientPanel isRegistered={true}/>
                     )

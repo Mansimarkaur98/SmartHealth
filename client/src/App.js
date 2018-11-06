@@ -14,6 +14,8 @@ import './styles/styles.css';
 import ButtonAppBar from './components/appBar';
 import PasswordForget from './components/passwordForget';
 import PatientRegister from './components/PatientRegister';
+import ManageDoctors from './components/AdminPanel/ManageDoctors';
+import ManageInventory from './components/AdminPanel/ManageInventory';
 
 class App extends Component {
 
@@ -36,6 +38,8 @@ class App extends Component {
             <Route exact path="/home" component= {Home}/>
             <Route exact path="/password-reset" component= {PasswordForget}/>
             <Route exact path="/register-patient" component= {PatientRegister}/>
+            <Route exact path="/manage-doctors" component={ManageDoctors}/>
+            <Route exact path="/manage-inventory" component={ManageInventory}/>
           </div>
         </BrowserRouter>
       </div>
