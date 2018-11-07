@@ -16,6 +16,8 @@ import PasswordForget from './components/passwordForget';
 import PatientRegister from './components/PatientRegister';
 import ManageDoctors from './components/AdminPanel/ManageDoctors';
 import ManageInventory from './components/AdminPanel/ManageInventory';
+import SecondaryInformationForm from './components/PatientPanel/SecondaryInformationForm';
+import HealthInformation from './components/PatientPanel/HealthInformationForm';
 
 class App extends Component {
 
@@ -40,6 +42,8 @@ class App extends Component {
             <Route exact path="/register-patient" component= {PatientRegister}/>
             <Route exact path="/manage-doctors" component={ManageDoctors}/>
             <Route exact path="/manage-inventory" component={ManageInventory}/>
+            <Route exact path="/insurance-information" component={SecondaryInformationForm}/>
+            <Route exact path="/health-information-form" component={HealthInformation}/>
           </div>
         </BrowserRouter>
       </div>

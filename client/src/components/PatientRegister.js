@@ -37,7 +37,7 @@ class PatientRegister extends Component {
             }
         }
 
-        const detail_data = {
+        const personal_information = {
             [uid]: {
                 personal_information: {
                     first_name: this.state.first_name,
@@ -57,7 +57,7 @@ class PatientRegister extends Component {
         // creating the users_type
         database.ref().child('/USERS/users_type/').update(data_for_user_types);
         // adding information to the patients
-        database.ref().child('/USERS/PATIENTS/detail_patients_list').update(detail_data);
+        database.ref().child('/USERS/PATIENTS/detail_patients_list').update(personal_information);
     }
 
     displayForm(){
