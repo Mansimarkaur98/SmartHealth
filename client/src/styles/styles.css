@@ -13,3 +13,18 @@
 .profile-avatar{
     border: 1px solid black;
 }
+
+.patient-register-form {
+    background-color: #f3f3f3;
+    text-align: center;
+    margin: 20px auto;
+    width: 40%;
+    border: 2px solid #aaaaaa;
+    border-radius: 5px 5px;
+}
+
+.patient-register-form-button{
+    float:right;
+    right: 100px;
+    margin-top: 20px !important;
+}
