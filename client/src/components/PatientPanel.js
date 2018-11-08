@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 // BookAppointment
 
 import PatientRegister from './PatientRegister';
@@ -9,7 +10,7 @@ class PatientPanel extends Component {
         const {isRegistered} = this.props;
         
         if(!isRegistered){
-            return <PatientRegister/>
+            return <Redirect to="/register-patient"/>
         }
     }
 

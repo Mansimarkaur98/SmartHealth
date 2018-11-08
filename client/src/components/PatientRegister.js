@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import {Redirect} from 'react-router-dom';
 import {database} from '../firebase/config';
 import {connect} from 'react-redux';
 
@@ -57,7 +57,9 @@ class PatientRegister extends Component {
         // creating the users_type
         database.ref().child('/USERS/users_type/').update(data_for_user_types);
         // adding information to the patients
-        database.ref().child('/USERS/PATIENTS/detail_patients_list').update(personal_information);
+        database.ref().child('/USERS/PATIENTS/detail_patients_list').update(personal_information).then(
+            <Redirect to="/insurance-information"/>
+        );
     }
 
     displayForm(){
