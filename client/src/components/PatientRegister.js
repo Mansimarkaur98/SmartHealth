@@ -5,6 +5,9 @@ import {Redirect} from 'react-router-dom';
 import {database} from '../firebase/config';
 import {connect} from 'react-redux';
 
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
 
 class PatientRegister extends Component {
 
@@ -12,16 +15,20 @@ class PatientRegister extends Component {
         super(props);
 
         this.state = {
+            title:"",
             first_name: "",
-            middle_name: " ",
+            middle_name: "",
             last_name: "",
+            gender: "",
+            marital_status: "",
             email: "",
             phone: "",
             dob: undefined,
             address1: "",
-            address2: " ",
+            address2: "",
             city: "",
             province: "",
+            renderRedirect: false,
         };
     }
 
@@ -40,9 +47,12 @@ class PatientRegister extends Component {
         const personal_information = {
             [uid]: {
                 personal_information: {
+                    title: this.state.title,
                     first_name: this.state.first_name,
                     middle_name: this.state.middle_name,
                     last_name: this.state.last_name,
+                    gender: this.state.gender,
+                    marital_status: this.state.marital_status,
                     email: this.state.email,
                     phone: this.state.phone,
                     dob: this.state.dob,
@@ -57,14 +67,14 @@ class PatientRegister extends Component {
         // creating the users_type
         database.ref().child('/USERS/users_type/').update(data_for_user_types);
         // adding information to the patients
-        database.ref().child('/USERS/PATIENTS/detail_patients_list').update(personal_information).then(
-            <Redirect to="/insurance-information"/>
-        );
+        database.ref().child('/USERS/PATIENTS/detail_patients_list').update(personal_information);
+        this.setState({renderRedirect: true});
     }
 
     displayForm(){
 
         const {
+            title,
             first_name,
             middle_name,
             last_name,
@@ -85,6 +95,18 @@ class PatientRegister extends Component {
                 </div>
             <div className="patient-register-form">
                 <form onSubmit={this.handleSubmit.bind(this)}>
+                        <div>
+                            <label>Title</label>
+                            <Select
+                                value={this.state.title}
+                                onChange={e => this.setState({title: e.target.value})}
+                            >
+                                <MenuItem value="Mr.">Mr.</MenuItem>
+                                <MenuItem value="Ms.">Ms.</MenuItem>
+                                <MenuItem value="Mrs.">Mrs.</MenuItem>
+                            </Select>
+                        </div>
+
                         <div>
                             <TextField
                                 id="standard-bare"
@@ -111,6 +133,30 @@ class PatientRegister extends Component {
                                 value={last_name}
                                 onChange={e => this.setState({last_name: e.target.value})}
                             />
+                        </div>
+                        <div>
+                            <label>Gender</label>
+                            <Select
+                                value={this.state.gender}
+                                onChange={e => this.setState({gender: e.target.value})}
+                            >
+                                <MenuItem value="Mr.">Male</MenuItem>
+                                <MenuItem value="Ms.">Female</MenuItem>
+                                <MenuItem value="Mrs.">Prefer not to answer</MenuItem>
+                            </Select>
+                        </div>
+                        <div>
+                            <label>marital status</label>
+                            <Select
+                                value={this.state.marital_status}
+                                onChange={e => this.setState({marital_status: e.target.value})}
+                            >
+                                <MenuItem value="Married">Married</MenuItem>
+                                <MenuItem value="Single">Single</MenuItem>
+                                <MenuItem value="Divorced">Divorced</MenuItem>
+                                <MenuItem value="Widowed">Widowed</MenuItem>
+                                <MenuItem value="Other">Other</MenuItem>
+                            </Select>
                         </div>
                         <div>
                             <TextField
@@ -190,6 +236,7 @@ class PatientRegister extends Component {
 
         return (
             <div>
+                {this.state.renderRedirect && <Redirect to="/insurance-information"/>}
                 {this.displayForm()}
             </div>
         )

@@ -44,7 +44,7 @@ class App extends Component {
             <Route exact path="/manage-doctors" component={ManageDoctors}/>
             <Route exact path="/manage-inventory" component={ManageInventory}/>
             <Route exact path="/insurance-information" component={SecondaryInformationForm}/>
-            <Route exact path="/health-information-form" component={HealthInformation}/>
+            <Route exact path="/health-information" component={HealthInformation}/>
             <Route exact path="/order-medication" component={OrderMedication}/>
           </div>
         </BrowserRouter>

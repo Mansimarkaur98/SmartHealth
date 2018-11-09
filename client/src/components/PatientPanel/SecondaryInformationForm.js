@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import {connect} from 'react-redux';
 import {database} from '../../firebase/config';
 
+import {Redirect} from 'react-router-dom';
+
 class SecondaryInformationForm extends Component {
     constructor(props){
         super(props);
@@ -20,7 +22,8 @@ class SecondaryInformationForm extends Component {
                 relationship: "",
                 address: "",
                 mobile: ""
-            }
+            },
+            renderRedirect:false,
         };
     }
 
@@ -31,6 +34,7 @@ class SecondaryInformationForm extends Component {
 
         const value = this.state;
         database.ref().child(`/USERS/PATIENTS/detail_patients_list/${uid}`).update(value);
+        this.setState({renderRedirect: true});
     }
 
     render(){
@@ -39,6 +43,7 @@ class SecondaryInformationForm extends Component {
 
         return (
             <div className="patient-register-form">
+                {this.state.renderRedirect && <Redirect to="/health-information"/>}
                 <form onSubmit={this.onSubmit.bind(this)}>
                         <h2>Insurance information</h2>
                         <div>
