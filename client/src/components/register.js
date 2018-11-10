@@ -107,6 +107,7 @@ class Register extends Component {
                     <div>
                     <TextField
                         label="confirm password "
+                        type="password"
                         value={password2}
                         placeholder = "sssshhhh -2 "
                         multiline

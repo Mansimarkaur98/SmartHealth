@@ -31,6 +31,7 @@ class Home extends Component {
                 })
 
                 if(user_uid_list.includes(uid)){
+                    // checking if the user already exists inside the list of all the users or no...
                     return (
                         <PatientPanel isRegistered={true}/>
                     )
@@ -38,14 +39,8 @@ class Home extends Component {
                 else {
                     return <PatientPanel isRegistered={false}/>
                 }
-                // return user_uid_list.includes(uid) ? <PatientPanel isRegistered="yes"/> : <PatientPanel isRegistered="no"/>
-                // use some to check out if it is a new or old user
             }
-        }
-        // checking if it is a new user or not. 
-        // if it is, update data inside database else just retrieve it
-
-        
+        }        
     }
 
     filterUserType(){
@@ -63,8 +58,8 @@ class Home extends Component {
 
     render() {    
         const user_profile = this.props.user_profile;
-        const test = user_profile ? <h2>{user_profile.displayName}</h2> : <Redirect to= "/login"/>
-        
+        const test = user_profile ? <h2>{user_profile.displayName}</h2> : <Redirect to= "/login"/>;
+
         return (
             <div>
                 {
