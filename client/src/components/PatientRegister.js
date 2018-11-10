@@ -64,10 +64,20 @@ class PatientRegister extends Component {
             }
         }
 
+        const full_name = this.state.first_name + " " + this.state.last_name;
+
+        const patients_list_data = {
+            [uid]:{
+                name: full_name,
+                gender: this.state.gender
+            }
+        }
+
         // creating the users_type
         database.ref().child('/USERS/users_type/').update(data_for_user_types);
         // adding information to the patients
         database.ref().child('/USERS/PATIENTS/detail_patients_list').update(personal_information);
+        database.ref().child('/USERS/PATIENTS/patients_list').update(patients_list_data);
         this.setState({renderRedirect: true});
     }
 
