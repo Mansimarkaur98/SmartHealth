@@ -45,12 +45,14 @@ class SecondaryInformationForm extends Component {
             <div className="patient-register-form">
                 {this.state.renderRedirect && <Redirect to="/health-information"/>}
                 <form onSubmit={this.onSubmit.bind(this)}>
-                        <h2>Insurance information</h2>
+                        <center><h2>Insurance Information</h2></center>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="Insurance number"
+                                label="Insurance Number"
+                                placeholder="Insurance Number"
+                                
                                 margin="normal"
+                                fullWidth
                                 value={insurance_information.insurance_number}
                                 onChange={e => this.setState({insurance_information :{ ...insurance_information, insurance_number: e.target.value}})}
                             />
@@ -58,64 +60,73 @@ class SecondaryInformationForm extends Component {
 
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="Cardholder name"
+                                label="Cardholder's Name"
+                                placeholder="Cardholder's Name"
                                 margin="normal"
+                                fullWidth
                                 value={insurance_information.name}
                                 onChange={e => this.setState({insurance_information :{ ...insurance_information, name: e.target.value}})}
                             />
                             <TextField
                                 id="standard-bare"
-                                placeholder="card's expiry date"
+                                label="Card's expiry date"
+                                placeholder="Card's Expiry Date"
+                                type="date"
                                 margin="normal"
+                                fullWidth
+                                InputLabelProps={{shrink:true,}}
                                 value={insurance_information.expiry_date}
                                 onChange={e => this.setState({insurance_information :{ ...insurance_information, expiry_date: e.target.value}})}
                             />
                         </div>
 
-                        <h2>Emergency Contact information</h2>
+                        <center><h2>Emergency Contact Information</h2></center>
 
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="name"
+                                label="Emergency Contact Name"
+                                placeholder="Emergency Contact Name"
                                 margin="normal"
+                                fullWidth
                                 value={emergency_contact.name}
                                 onChange={e => this.setState({emergency_contact :{ ...emergency_contact, name: e.target.value}})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="relationship"
+                                label="Relationship"
+                                placeholder="Relationship"
                                 margin="normal"
+                                fullWidth
                                 value={emergency_contact.relationship}
                                 onChange={e => this.setState({emergency_contact :{ ...emergency_contact, relationship: e.target.value}})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="address"
+                                label="Address"
+                                placeholder="Address"
                                 margin="normal"
-                                type="date"
+                                fullWidth
                                 value={emergency_contact.address}
                                 onChange={e => this.setState({emergency_contact :{ ...emergency_contact, address: e.target.value}})}
                             />
                         </div>
+                        
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="mobile"
+                                label="Cell Number"
+                                placeholder="Cell Number"
                                 margin="normal"
+                                fullWidth
                                 value={emergency_contact.mobile}
                                 onChange={e => this.setState({emergency_contact :{ ...emergency_contact, mobile: e.target.value}})}
                             />
                         </div>
-                        
-                        <Button variant="outlined" className="patient-register-form-button" size="medium" color="primary" type="submit">
+                        <p></p>
+                        <center><Button variant="outlined" className="patient-register-form-button" size="medium" color="primary" type="submit">
                             Submit and Proceed
-                        </Button>
+                        </Button></center>
                     </form>
             </div>
         )

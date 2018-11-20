@@ -19,6 +19,7 @@ import ManageInventory from './components/AdminPanel/ManageInventory';
 import SecondaryInformationForm from './components/PatientPanel/SecondaryInformationForm';
 import HealthInformation from './components/PatientPanel/HealthInformationForm';
 import OrderMedication from './components/PatientPanel/OrderMedication';
+import Page404 from './components/Page404'
 
 class App extends Component {
 
@@ -46,6 +47,8 @@ class App extends Component {
             <Route exact path="/insurance-information" component={SecondaryInformationForm}/>
             <Route exact path="/health-information" component={HealthInformation}/>
             <Route exact path="/order-medication" component={OrderMedication}/>
+            <Route exact path="/Page404" component={Page404}/>
+            
           </div>
         </BrowserRouter>
       </div>

@@ -54,47 +54,73 @@ class Login_Page extends Component {
         } = this.state;
 
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        <TextField
-                            label="email"
-                            placeholder = "what's your email ?"
-                            multiline
-                            value={email}
-                            onChange = {event => this.setState({'email': event.target.value})}
-                        />
-                    </div>
-                    
-                    <div>
-                        <TextField
-                            label="password"
-                            placeholder = "password here"
-                            multiline
-                            value={password}
-                            onChange = {event => this.setState({'password': event.target.value})}
-                        />
-                    </div>
-                        <Button variant="contained" color="primary" onClick={this.onSubmit.bind(this)}>
-                            Login
-                        </Button>
+            <p>
+            
+                <table class="login_table">
+                    <tr> 
+                        <td>
+                            <form onSubmit={this.onSubmit}>
+                                <div className="login_width">
+                                    <TextField
+                                        label="Email"
+                                        placeholder = "Enter your email address here"
+                                        fullWidth
+                                        value={email}
+                                        onChange = {event => this.setState({'email': event.target.value})}
+                                    />
+                                </div>
+                                <p></p>
+                                
 
-                        <Link to='/password-reset'><Button variant="outlined" color="secondary">Forgot Password</Button></Link>
+                                <div className="login_width">
+                                    <TextField
+                                        label="Password"
+                                        placeholder = "Password here"
+                                        type = "password"
+                                        fullWidth
+                                        value={password}
+                                        onChange = {event => this.setState({'password': event.target.value})}
+                                    />
+                                </div>
+                                <p></p>
 
-                        {error && <p>{error.message}</p>}
-                </form>
+                                <table className="login_width">
+                                    <tr>
+                                        <td>
+                                            <Button variant="contained" color="primary" onClick={this.onSubmit.bind(this)}>
+                                                Login
+                                            </Button>
+                                        </td>
 
-                <div>
-                    <h4>Don't have an account ?</h4>
-                    <Link to='/register'>Sign up</Link>
-                </div>
+                                        <td>
+                                            <Link to='/password-reset'><Button variant="outlined" color="secondary">Forgot Password</Button></Link>
+                                        </td>
+                                    </tr>
+                                </table>
+                                    {error && <p>{error.message}</p>}
+                            </form>
 
-                <div>
-                    <GoogleAuthSignIn/>
-                </div>
-            </div>
+                            <div>
+                                <h4>Don't have an account ?</h4>
+                                <Link to='/register'>Sign up</Link>
+                            </div>
+                            <p></p>
+    
+                            <div>
+                                <table className="login_width">
+                                <tr> <td>
+                                <GoogleAuthSignIn/>
+                                </td> </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            
+                </p>
         )
     }
 }
 
 export default Login_Page;
+

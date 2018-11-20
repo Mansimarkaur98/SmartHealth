@@ -5,9 +5,9 @@ import {Redirect} from 'react-router-dom';
 import {database} from '../firebase/config';
 import {connect} from 'react-redux';
 
+import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
 
 class PatientRegister extends Component {
 
@@ -104,143 +104,193 @@ class PatientRegister extends Component {
                     <h5>Before proceeding further, please fill out the below form</h5>
                 </div>
             <div className="patient-register-form">
+            
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                        <div>
-                            <label>Title</label>
+                    <p></p>
+                    <FormControl className="formControl">
+                            
                             <Select
                                 value={this.state.title}
                                 onChange={e => this.setState({title: e.target.value})}
+                                fullWidth
+                                displayEmpty
+                                name="title"
+                                placeholder="title"
+                                
                             >
+                                <MenuItem value="" disabled>
+                                    Title
+                                </MenuItem>
                                 <MenuItem value="Mr.">Mr.</MenuItem>
                                 <MenuItem value="Ms.">Ms.</MenuItem>
                                 <MenuItem value="Mrs.">Mrs.</MenuItem>
                             </Select>
-                        </div>
+                        </FormControl>
 
                         <div>
                             <TextField
-                                id="standard-bare"
+                                label="First Name"
                                 placeholder="First Name"
                                 margin="normal"
+                                fullWidth
                                 value={first_name}
                                 onChange={e => this.setState({first_name: e.target.value})}
                             />
                         </div>
+
+                    
                         <div>
                             <TextField
-                                id="standard-bare"
+                                label="Middle Name"
                                 placeholder="Middle Name"
                                 margin="normal"
+                                fullWidth
                                 value={middle_name}
                                 onChange={e => this.setState({middle_name: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="Last name"
+                                label="Last Name"
+                                placeholder="Last Name"
                                 margin="normal"
+                                fullWidth
                                 value={last_name}
                                 onChange={e => this.setState({last_name: e.target.value})}
                             />
                         </div>
-                        <div>
-                            <label>Gender</label>
+                    <p></p>
+                        <FormControl className="formControl">
+                            
                             <Select
                                 value={this.state.gender}
                                 onChange={e => this.setState({gender: e.target.value})}
+                                fullWidth
+                                displayEmpty
+                                name="gender"
+                                placeholder="gender"
+                                margin="normal"
+                                
                             >
+                                <MenuItem value="" disabled>
+                                    Gender
+                                </MenuItem>
                                 <MenuItem value="Mr.">Male</MenuItem>
                                 <MenuItem value="Ms.">Female</MenuItem>
                                 <MenuItem value="Mrs.">Prefer not to answer</MenuItem>
                             </Select>
-                        </div>
-                        <div>
-                            <label>marital status</label>
+                        </FormControl>
+
+                        <p></p>
+                        <FormControl className="formControl">
+                            
                             <Select
                                 value={this.state.marital_status}
                                 onChange={e => this.setState({marital_status: e.target.value})}
+                                fullWidth
+                                displayEmpty
+                                name="Marital Status"
+                                placeholder="Marital Status"
+                                
                             >
+                                <MenuItem value="" disabled>
+                                    Marital Status
+                                </MenuItem>
                                 <MenuItem value="Married">Married</MenuItem>
                                 <MenuItem value="Single">Single</MenuItem>
                                 <MenuItem value="Divorced">Divorced</MenuItem>
                                 <MenuItem value="Widowed">Widowed</MenuItem>
                                 <MenuItem value="Other">Other</MenuItem>
                             </Select>
-                        </div>
+                        </FormControl>
+                        
+
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="email"
+                                label="Email Address"
+                                placeholder="Email"
                                 margin="normal"
+                                fullWidth
                                 value={email}
                                 onChange={e => this.setState({email: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
+                                Label="Primary phone number"
                                 placeholder="Primary phone number"
                                 margin="normal"
+                                fullWidth
                                 value={phone}
                                 onChange={e => this.setState({phone: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="Date of Birth"
+                                
+                                label="Date of Birth"
+                                //placeholder="Date of Birth"
                                 margin="normal"
                                 type="date"
-                                // value={dob}
+                                fullWidth
+                                //value={dob}
+                                InputLabelProps={{shrink:true,}}
                                 selected={dob}
                                 onChange={e => this.setState({dob: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="address"
+                                label="Address"
+                                placeholder="Address"
                                 margin="normal"
+                                fullWidth
                                 value={address1}
                                 onChange={e => this.setState({address1: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="continue address"
+                                label="Continue Address"
+                                placeholder="Continue Address"
                                 margin="normal"
+                                fullWidth
                                 value={address2}
                                 onChange={e => this.setState({address2: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="city"
+                                label="City"
+                                placeholder="City"
                                 margin="normal"
+                                fullWidth
                                 value={city}
                                 onChange={e => this.setState({city: e.target.value})}
                             />
                         </div>
                         <div>
                             <TextField
-                                id="standard-bare"
-                                placeholder="province"
+                                label="Province"
+                                placeholder="Province"
                                 margin="normal"
+                                fullWidth
                                 value={province}
                                 onChange={e => this.setState({province: e.target.value})}
                             />
+                            <p></p>
                         </div>
-                        <Button variant="outlined" className="patient-register-form-button" disabled={Object.values(this.state).includes("")} size="medium" color="primary" type="submit">
+                        <center><Button variant="outlined" className="patient-register-form-button" disabled={Object.values(this.state).includes("")} size="medium" color="primary" type="submit">
                             Submit and Proceed
-                        </Button>
+                        </Button></center>
+                        <p></p>
                     </form>
                 </div>
             </div>
         )
     }
+
+    componentWillUnmount(){}
 
     render(){
 

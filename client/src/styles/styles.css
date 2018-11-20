@@ -1,7 +1,3 @@
-.menu-button {
-    float: right;
-}
-
 .avatar-header {
     background-color: #c3c3c3;
     padding: 5px;
@@ -14,17 +10,128 @@
     border: 1px solid black;
 }
 
-.patient-register-form {
-    background-color: #f3f3f3;
-    text-align: center;
-    margin: 20px auto;
-    width: 40%;
-    border: 2px solid #aaaaaa;
-    border-radius: 5px 5px;
+
+.menu-button {
+    margin-right: 0%;
+    float: right;
+  
 }
 
-.patient-register-form-button{
+.Menu_color {
+    color: white;
+    font-size: 18px;
+    margin-left: auto;
+
+}
+
+.landing-body{
+    width: 1000px;
+    height: 1000px;
+    
+    background: url(../assets/test.jpg) no-repeat;
+}
+
+.Menu-Bar{
+    margin-left: auto;
+}
+
+.menubar{
+    border: 5px solid black;
+    display: flex;
+    
+}
+
+Link {
+    text-decoration: none;
+}
+
+
+.landing-image{
+    width: 90%;
+    margin-left: 5%;
+
+}
+
+
+
+table.login_table {
+    background-color: rgba(215, 230, 248, 0.733);
+    padding: 4%;
+    font-size: 18px;
+    width: 30%;
+    height: 450px;
+    border: 2px solid rgb(2, 2, 173);
+    vertical-align: middle;
+    margin-right: 10%;
+    margin-left: auto;
+    margin-top: 5%;
+    text-align: center;
+}
+
+table.PswdReset{
+    background-color: rgba(215, 230, 248, 0.733);
+    padding: 4%;
+    font-size: 18px;
+    width: 30%;
+    height: 450px;
+    border: 2px solid rgb(1, 1, 66);
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+.login_width{
+    width: 100%;
+    
+}
+
+.patient-register-form {
+    background-color: rgba(215, 230, 248, 0.733);
+    text-align: left;
+    margin: 40px auto;
+    padding-left:10%;
+    padding-right:10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 250px;
+    border: 2px solid  rgb(1, 1, 66);
+    border-radius: 5px 5px;
+    
+}
+
+/*.patient-register-form-button{
     float:right;
     right: 100px;
     margin-top: 20px !important;
+}
+
+/*.patient-register-form > div{
+    width:250px;
+}*/
+ 
+
+/*.flex-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-box label, select{
+    margin-right: auto;
+}*/
+
+.formControl{
+    width: 100%; 
+  }
+  
+.Page404icon{
+    height: 100px;
+    padding: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.Page-not-found{
+    font-size: 30px;
+    text-emphasis-color: red;
 }

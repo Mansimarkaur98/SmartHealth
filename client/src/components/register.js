@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import GoogleAuthSignIn from './googleAuthSignIn'
 // import {withStyles} from '@material-ui/core/styles';
 
+import logo from '../assets/logo.png'
+
 const INITIAL_STATE = {
     firstName: '',
     lastName: '',
@@ -63,64 +65,78 @@ class Register extends Component {
         firstName === '' || lastName === '' 
 
         return (
-            <div>
+            <div className="patient-register-form">
                 <form onSubmit={this.handleSubmit.bind(this)}>
+                <center><img src={logo} alt="logo"/></center>
                     <div>
                     <TextField
-                        label="firstname"
+                        label="First Name"
                         value={firstName}
                         placeholder = "First Name"
-                        multiline
+                        fullWidth
+                        margin="normal"
                         onChange={e => {this.setState({'firstName' : e.target.value})}}
                     />
+                    </div>
 
+                    <div>
                     <TextField
-                        label="lastname"
+                        label="Last Name"
+                        margin="normal"
                         value={lastName}
                         placeholder = "Last Name"
-                        multiline
+                        fullWidth
                         onChange={e => {this.setState({'lastName' : e.target.value})}}
                     />
                     </div>
 
                     <div>
                     <TextField
-                        label="email"
+                        label="Email Address"
+                        margin="normal"
                         value={email}
-                        placeholder = "enter your email here here"
-                        multiline
+                        placeholder = "Enter your email address here"
+                        fullWidth
                         onChange={e => {this.setState({'email' : e.target.value})}}
                     />
                     </div>
 
                     <div>
                     <TextField
-                        label="password"
+                        label="Password"
+                        margin="normal"
                         type="password"
                         value={password1}
                         onChange={e => {this.setState({'password1' : e.target.value})}}
-                        placeholder = "password here"
-                        multiline
+                        placeholder = "Password here"
+                        fullWidth
                     />
                     </div>
 
                     <div>
                     <TextField
-                        label="confirm password "
+                        label="Confirm password "
+                        margin="normal"
                         type="password"
                         value={password2}
-                        placeholder = "sssshhhh -2 "
-                        multiline
+                        placeholder = "Re-enter your password here "
+                        fullWidth
                         onChange={e => {this.setState({'password2' : e.target.value})}}
                     />
                     </div>
+                    <p>
+                    </p>
                     {error && <p>{error}</p>}
-                    <Button variant="contained" color="primary" disabled={isInvalid} type="submit">
+                    <center><Button variant="contained" color="primary" disabled={isInvalid} type="submit">
                         Register
-                    </Button>
+                    </Button></center>
                 </form> 
 
-                <GoogleAuthSignIn/>
+                <p></p>
+
+                <center> OR
+                <p></p>
+                    <GoogleAuthSignIn/> </center>
             </div>
         )
     }

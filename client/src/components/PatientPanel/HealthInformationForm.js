@@ -5,6 +5,10 @@ import {Redirect} from 'react-router-dom';
 import {database} from '../../firebase/config';
 import {connect} from 'react-redux';
 
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
 class SecondaryInformationForm extends Component {
     constructor(props){
         super(props);
@@ -54,12 +58,13 @@ class SecondaryInformationForm extends Component {
                     {this.state.renderRedirect && <Redirect to="/home"/>}
                 <div className="patient-register-form">
                     <form onSubmit={this.onSubmit.bind(this)}>
-                            <h2>Health Information</h2>
+                            <center><h2>Health Information</h2></center>
                             <div>
                                 <TextField
                                     id="standard-bare"
-                                    placeholder="height"
+                                    placeholder="Height (in cms)"
                                     margin="normal"
+                                    fullWidth
                                     value={this.state.height}
                                     onChange={e => this.setState({height: e.target.value})}
                                 />
@@ -68,65 +73,93 @@ class SecondaryInformationForm extends Component {
                             <div>
                                 <TextField
                                     id="standard-bare"
-                                    placeholder="weight"
+                                    placeholder="Weight (in kgs)"
                                     margin="normal"
+                                    fullWidth
                                     value={this.state.weight}
                                     onChange={e => this.setState({weight: e.target.value})}
                                 />
-                                <TextField
-                                    id="standard-bare"
-                                    placeholder="blood-group"
-                                    margin="normal"
-                                    value={this.state.blood_group}
-                                    onChange={e => this.setState({blood_group: e.target.value})}
-                                />
                             </div>
+                            <p></p>
+
+                                <FormControl className="formControl">
+                            
+                                    <Select
+                                        value={this.state.blood_group}
+                                        onChange={e => this.setState({blood_group: e.target.value})}
+                                        fullWidth
+                                        displayEmpty
+                                        name="Blood-group"
+                                        placeholder="Blood-group"
+                                        
+                                    >
+                                        <MenuItem value="" disabled>
+                                            Blood - group
+                                        </MenuItem>
+                                        <MenuItem value="A+">A+</MenuItem>
+                                        <MenuItem value="A-">A-</MenuItem>
+                                        <MenuItem value="AB+">AB+</MenuItem>
+                                        <MenuItem value="AB-">AB-</MenuItem>
+                                        <MenuItem value="B+">B+</MenuItem>
+                                        <MenuItem value="B-">B-</MenuItem>
+                                        <MenuItem value="O+">O+</MenuItem>
+                                        <MenuItem value="O-">O-</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            
                             <div>
                                 <TextField
                                     id="standard-bare"
-                                    placeholder="allergies"
+                                    placeholder="Allergies"
                                     margin="normal"
+                                    fullWidth
                                     value={this.state.allergies}
                                     onChange={e => this.setState({allergies: e.target.value})}
                                 />
                             </div>
                             
-                            <h4>MEDICATION</h4>
+                            <center><h2>Medication</h2></center>
+                            <center><h4>List any current medications you are taking</h4></center>
                             
                             <div>
                                 <TextField
                                     id="standard-bare"
-                                    placeholder="medication name"
+                                    placeholder="Medication Name"
                                     margin="normal"
+                                    fullWidth
                                     value={this.state.medications.medication_name}
                                     onChange={e => this.setState({medications :{ ...medications, medication_name: e.target.value}})}
                                 />
                             </div>
                             <div>
                                 <TextField
-                                    id="standard-bare"
-                                    placeholder="address"
+                                    
+                                    label="Start Date"
                                     margin="normal"
                                     type="date"
+                                    fullWidth
+                                    InputLabelProps={{shrink:true,}}
                                     value={this.state.medications.dose}
                                     onChange={e => this.setState({medications :{ ...medications, dose: e.target.value}})}
                                 />
                             </div>
+
+                            
                             
                             <div>
                                 <TextField
                                     id="standard-bare"
-                                    placeholder="address"
+                                    placeholder="Frequency"
+                                    fullWidth
                                     margin="normal"
-                                    type="Frequency"
                                     value={this.state.medications.frequency}
                                     onChange={e => this.setState({medications :{ ...medications, frequency: e.target.value}})}
                                 />
                             </div>
-                            
-                            <Button variant="outlined" className="patient-register-form-button" size="medium" color="primary" type="submit">
+                            <p></p>
+                            <center><Button variant="outlined" className="patient-register-form-button" size="medium" color="primary" type="submit">
                                 Submit
-                            </Button>
+                            </Button></center>
                         </form>
                 </div>
             </div>
