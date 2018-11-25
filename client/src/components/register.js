@@ -65,6 +65,7 @@ class Register extends Component {
         firstName === '' || lastName === '' 
 
         return (
+            <div className="login-body">
             <div className="patient-register-form">
                 <form onSubmit={this.handleSubmit.bind(this)}>
                 <center><img src={logo} alt="logo"/></center>
@@ -137,6 +138,7 @@ class Register extends Component {
                 <center> OR
                 <p></p>
                     <GoogleAuthSignIn/> </center>
+            </div>
             </div>
         )
     }

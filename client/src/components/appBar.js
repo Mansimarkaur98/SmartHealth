@@ -8,15 +8,18 @@ import {connect} from 'react-redux';
 const NavigateNonAuth = () => {
     return (
         <div>
-            <Link to="/register"><Button className="menu-button" color="inherit">Register</Button></Link>
-            <Link to="/login" ><Button className="menu-button" color="inherit">Sign-in</Button></Link>
+            <Link to="/register"><Button className="menu-button" color="inherit">
+                <div className="menu-button">Register</div></Button></Link>
+            <Link to="/login" ><Button className="menu-button" color="inherit">
+                <div className="menu-button">Sign-in</div></Button></Link>
         </div>
     )
 }
 
 const NavigateAuth = () => {
     return (
-        <Link to="/"><Button className="menu-button" color="inherit" onClick={() => auth.signOut()}>Sign out</Button></Link>
+        <Link to="/"><Button className="menu-button" color="inherit" onClick={() => auth.signOut()}>
+            <div className="menu-button">Sign out</div></Button></Link>
     )
 }
 
@@ -31,7 +34,7 @@ class ButtonAppBar extends Component {
     return (
         <div>
             <AppBar position="static">
-                
+             <div className="menubar">
                 <Toolbar>
                     <IconButton color="inherit" aria-label="Menu">
                         <MenuIcon/>
@@ -39,12 +42,13 @@ class ButtonAppBar extends Component {
                     <Typography variant="title" color="inherit">
                     {
                         this.props.user_profile ? 
-                        <Link to="/home">Smart Health</Link> : 
-                        <Link to="/">Smart Health</Link>
+                        <Link to="/home" color="inherit"><div className="SmartHealth">SmartHealth</div></Link> : 
+                        <Link to="/" color="inherit"><div className="SmartHealth">SmartHealth</div></Link>
                         }
                     </Typography>
                     {this.authentication()}
                 </Toolbar>
+                </div>   
             </AppBar>
         </div>
     );

@@ -98,7 +98,7 @@ class PatientRegister extends Component {
         } = this.state;
 
         return (
-            <div>
+            <div className="login-body">
                 <div>
                     <h3>Welcome to the app</h3>
                     <h5>Before proceeding further, please fill out the below form</h5>
@@ -111,7 +111,7 @@ class PatientRegister extends Component {
                             
                             <Select
                                 value={this.state.title}
-                                onChange={e => this.setState({title: e.target.value})}
+                                onChange={e => this. setState({title: e.target.value})}
                                 fullWidth
                                 displayEmpty
                                 name="title"
@@ -217,7 +217,7 @@ class PatientRegister extends Component {
                         </div>
                         <div>
                             <TextField
-                                Label="Primary phone number"
+                                label="Primary phone number"
                                 placeholder="Primary phone number"
                                 margin="normal"
                                 fullWidth

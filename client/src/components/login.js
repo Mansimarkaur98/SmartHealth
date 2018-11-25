@@ -7,6 +7,8 @@ import {auth} from '../firebase';
 import GoogleAuthSignIn from './googleAuthSignIn';
 // import auth from '../../firebase/config';
 
+import logo from '../assets/logo.png'
+
 const INITIAL_STATE = {
     email: '',
     password: '',
@@ -54,12 +56,13 @@ class Login_Page extends Component {
         } = this.state;
 
         return (
-            <p>
+            <div className="login-body">
             
                 <table class="login_table">
                     <tr> 
                         <td>
                             <form onSubmit={this.onSubmit}>
+                            <center><img src={logo} alt="logo" width="100px"/></center>
                                 <div className="login_width">
                                     <TextField
                                         label="Email"
@@ -117,7 +120,7 @@ class Login_Page extends Component {
                     </tr>
                 </table>
             
-                </p>
+            </div>
         )
     }
 }

@@ -12,32 +12,37 @@
 
 
 .menu-button {
-    margin-right: 0%;
+    margin-left: auto;
     float: right;
-  
-}
-
-.Menu_color {
     color: white;
     font-size: 18px;
-    margin-left: auto;
-
 }
+
+
+.SmartHealth{
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-family: Georgia;
+    margin-right: auto;
+    align-self: flex-start;
+}
+
 
 .landing-body{
     width: 1000px;
     height: 1000px;
     
     background: url(../assets/test.jpg) no-repeat;
+    background-attachment: fixed;
 }
 
-.Menu-Bar{
-    margin-left: auto;
-}
 
 .menubar{
-    border: 5px solid black;
+    border: 2px solid rgb(1, 1, 66);
     display: flex;
+    justify-content: flex-start;
+    background-color: #15445f;
     
 }
 
@@ -53,10 +58,24 @@ Link {
 }
 
 
+.login-body{
+    background: url(../assets/iStock-695349930.jpg) no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden; 
+}
+
+body, html{
+    height: 100%;
+    margin: 0%;
+}
+
+
 
 table.login_table {
     background-color: rgba(215, 230, 248, 0.733);
-    padding: 4%;
+    padding: 3%;
     font-size: 18px;
     width: 30%;
     height: 450px;
@@ -64,7 +83,8 @@ table.login_table {
     vertical-align: middle;
     margin-right: 10%;
     margin-left: auto;
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-bottom: 1%;
     text-align: center;
 }
 

@@ -54,7 +54,7 @@ class SecondaryInformationForm extends Component {
         const {medications, common_health_information} = this.state;
 
         return (
-            <div>
+            <div className="login-body">
                     {this.state.renderRedirect && <Redirect to="/home"/>}
                 <div className="patient-register-form">
                     <form onSubmit={this.onSubmit.bind(this)}>
@@ -72,6 +72,7 @@ class SecondaryInformationForm extends Component {
 
                             <div>
                                 <TextField
+                                    label="Weight (in kgs)"
                                     id="standard-bare"
                                     placeholder="Weight (in kgs)"
                                     margin="normal"
@@ -109,6 +110,7 @@ class SecondaryInformationForm extends Component {
                             
                             <div>
                                 <TextField
+                                label="Allergies"
                                     id="standard-bare"
                                     placeholder="Allergies"
                                     margin="normal"
@@ -123,6 +125,7 @@ class SecondaryInformationForm extends Component {
                             
                             <div>
                                 <TextField
+                                    label="Medication Name"
                                     id="standard-bare"
                                     placeholder="Medication Name"
                                     margin="normal"
@@ -148,6 +151,7 @@ class SecondaryInformationForm extends Component {
                             
                             <div>
                                 <TextField
+                                    label="Frequency"
                                     id="standard-bare"
                                     placeholder="Frequency"
                                     fullWidth

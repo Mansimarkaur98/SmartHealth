@@ -42,6 +42,7 @@ class SecondaryInformationForm extends Component {
         const {insurance_information, emergency_contact} = this.state;
 
         return (
+            <div className="login-body">
             <div className="patient-register-form">
                 {this.state.renderRedirect && <Redirect to="/health-information"/>}
                 <form onSubmit={this.onSubmit.bind(this)}>
@@ -102,16 +103,7 @@ class SecondaryInformationForm extends Component {
                                 onChange={e => this.setState({emergency_contact :{ ...emergency_contact, relationship: e.target.value}})}
                             />
                         </div>
-                        <div>
-                            <TextField
-                                label="Address"
-                                placeholder="Address"
-                                margin="normal"
-                                fullWidth
-                                value={emergency_contact.address}
-                                onChange={e => this.setState({emergency_contact :{ ...emergency_contact, address: e.target.value}})}
-                            />
-                        </div>
+
                         
                         <div>
                             <TextField
@@ -128,6 +120,7 @@ class SecondaryInformationForm extends Component {
                             Submit and Proceed
                         </Button></center>
                     </form>
+            </div>
             </div>
         )
     }
