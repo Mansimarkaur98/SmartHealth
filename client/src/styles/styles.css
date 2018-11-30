@@ -57,6 +57,10 @@ Link {
 
 }
 
+a:-webkit-any-link{
+    text-decoration: none !important;
+}
+
 
 .login-body{
     background: url(../assets/iStock-695349930.jpg) no-repeat;
